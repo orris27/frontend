@@ -10,11 +10,11 @@
       <el-dropdown-menu slot="dropdown" class="user-dropdown">
         <router-link class="inlineBlock" to="/">
           <el-dropdown-item>
-            Home1
+            Home
           </el-dropdown-item>
         </router-link>
         <el-dropdown-item divided>
-          <span style="display:block;" @click="logout">LogOut12312</span>
+          <span style="display:block;" @click="logout">LogOut</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>

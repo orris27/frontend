@@ -30,44 +30,116 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/dashboard',
     name: 'Dashboard',
-    hidden: true,
+    // hidden: true,
+    hidden: false,
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: '首页', icon: 'example' },
     }]
   },
 
   {
-    path: '/example',
+    path: '/home',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/home/myHome',
+    name: 'Home',
+    meta: { title: '房屋', icon: 'example' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
+        path: 'myHome',
+        name: 'MyHome',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '我的房屋', icon: 'table' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
+        path: 'repair',
+        name: 'Repair',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '房屋维修', icon: 'tree' }
       }
     ]
   },
-
+  // {
+  //   path: '/center',
+  //   component: Layout,
+  //   redirect: '/center/ho',
+  //   name: 'Home',
+  //   meta: { title: '房屋', icon: 'example' },
+  //   children: [
+  //     {
+  //       path: 'myHome',
+  //       name: 'MyHome',
+  //       component: () => import('@/views/table/index'),
+  //       meta: { title: '我的房屋', icon: 'table' }
+  //     },
+  //     {
+  //       path: 'repair',
+  //       name: 'Repair',
+  //       component: () => import('@/views/tree/index'),
+  //       meta: { title: '房屋维修', icon: 'tree' }
+  //     }
+  //   ]
+  // },
+  //
   {
-    path: '/form',
+    path: '/center',
     component: Layout,
+    name: 'Center',
+    meta: { title: '个人中心', icon: "example" },
     children: [
       {
-        path: 'index',
-        name: 'Form',
+        path: 'homepage',
+        name: 'Homepage',
+        component: () => import('@/views/table/index'),
+        meta: { title: '我的主页', icon: 'form' }
+      },
+      {
+        path: 'wallet',
+        name: 'Wallet',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '钱包', icon: 'form' }
+      },
+      {
+        path: 'notification',
+        name: 'Notification',
+        component: () => import('@/views/form/index'),
+        meta: { title: '通知', icon: 'form' }
+      },
+      {
+        path: 'loan',
+        name: 'Loan',
+        component: () => import('@/views/form/index'),
+        meta: { title: '贷款', icon: 'form' }
+      },
+      {
+        path: 'credit',
+        name: 'Credit',
+        component: () => import('@/views/form/index'),
+        meta: { title: '信用分', icon: 'form' }
+      },
+    ]
+  },
+
+
+  {
+    path: '/service',
+    component: Layout,
+    // redirect: '/service/myHome',
+    name: 'Service',
+    meta: { title: '其他服务', icon: 'example' },
+    children: [
+      {
+        path: 'oldFamily',
+        name: 'OldFamily',
+        component: () => import('@/views/form/oldfamily'),
+        meta: { title: '老年家庭申请', icon: 'table' }
+      },
+      {
+        path: 'aid',
+        name: 'Aid',
+        component: () => import('@/views/form/aid'),
+        meta: { title: '援助申请', icon: 'tree' }
       }
     ]
   },
