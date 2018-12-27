@@ -47,27 +47,50 @@ export const constantRouterMap = [
     hidden: false,
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: 'dashboard', icon:'star' }
+
     }]
   },
   {
-    path: '/home',
+    path: '/house',
     component: Layout,
-    redirect: '/home/myHome',
-    name: 'Home',
-    meta: { title: '房屋', icon: 'example' },
+    redirect: '/house/myHouse',
+    name: 'House',
+    meta: { title: 'House', icon: 'example' },
     children: [
       {
-        path: 'myHome',
-        name: 'MyHome',
-        component: () => import('@/views/table/index'),
-        meta: { title: '我的房屋', icon: 'table' }
+        path: 'myHouse',
+        name: 'MyHouse',
+        component: () => import('@/views/myhouse/index'),
+        meta: { title: 'My House', icon: 'table' }
+      },
+      {
+        path: 'rentedHouse',
+        name: 'rentedHouse',
+        component: () => import('@/views/rentedhouses/index'),
+        meta: { title: 'Rented House', icon: 'drag' }
       },
       {
         path: 'repair',
         name: 'Repair',
-        component: () => import('@/views/tree/index'),
-        meta: { title: '房屋维修', icon: 'tree' }
+        component: () => import('@/views/repair/index'),
+        redirect: '/house/repair/apply',
+        meta: { title: 'Repair', icon: 'tree' },
+        children: [
+          {
+            path: 'apply',
+            name: 'Apply',
+            component: () => import('@/views/repair/apply/index'),
+            meta: { title: 'Apply', icon: 'form' }
+          },
+          {
+            path: 'myRepair',
+            name: 'MyRepair',
+            component: () => import('@/views/repair/myrepair/index'),
+            meta: { title: 'My Repair', icon: 'form' }
+          }
+        ]
       }
     ]
   },
@@ -94,41 +117,42 @@ export const constantRouterMap = [
   // },
   //
   {
-    path: '/center',
+    path: '/room',
     component: Layout,
-    name: 'Center',
-    meta: { title: '个人中心', icon: 'example' },
+    redirect: '/room/homepage',
+    name: 'Room',
+    meta: { title: 'MyRoom', icon: 'example' },
     children: [
       {
         path: 'homepage',
         name: 'Homepage',
-        component: () => import('@/views/table/index'),
-        meta: { title: '我的主页', icon: 'form' }
+        component: () => import('@/views/homepage/index'),
+        meta: { title: 'Homepage', icon: 'form' }
       },
       {
-        path: 'wallet',
-        name: 'Wallet',
-        component: () => import('@/views/form/index'),
-        meta: { title: '钱包', icon: 'form' }
+        path: 'eWallet',
+        name: 'EWallet',
+        component: () => import('@/views/ewallet/index'),
+        meta: { title: 'eWallet', icon: 'form' }
       },
       {
         path: 'notification',
         name: 'Notification',
         // component: () => import('@/views/form/index'),
         component: () => import('@/views/test/dragKanban'),
-        meta: { title: '通知', icon: 'form' }
+        meta: { title: 'Notification', icon: 'form' }
       },
       {
         path: 'loan',
         name: 'Loan',
-        component: () => import('@/views/form/index'),
-        meta: { title: '贷款', icon: 'form' }
+        component: () => import('@/views/loan/index'),
+        meta: { title: 'Loan', icon: 'form' }
       },
       {
         path: 'credit',
         name: 'Credit',
-        component: () => import('@/views/form/index'),
-        meta: { title: '信用分', icon: 'form' }
+        component: () => import('@/views/credit/index'),
+        meta: { title: 'Credit', icon: 'form' }
       }
     ]
   },
@@ -137,90 +161,90 @@ export const constantRouterMap = [
     component: Layout,
     // redirect: '/service/myHome',
     name: 'Service',
-    meta: { title: '其他服务', icon: 'example' },
+    meta: { title: 'Service', icon: 'example' },
     children: [
       {
         path: 'oldFamily',
         name: 'OldFamily',
         component: () => import('@/views/form/oldfamily'),
-        meta: { title: '老年家庭申请', icon: 'table' }
+        meta: { title: 'Old Family', icon: 'table' }
       },
       {
         path: 'aid',
         name: 'Aid',
         component: () => import('@/views/form/aid'),
-        meta: { title: '援助申请', icon: 'tree' }
+        meta: { title: 'Assistance', icon: 'tree' }
       }
     ]
   },
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
+  // {
+  //   path: '/nested',
+  //   component: Layout,
+  //   redirect: '/nested/menu1',
+  //   name: 'Nested',
+  //   meta: {
+  //     title: 'Nested',
+  //     icon: 'nested'
+  //   },
+  //   children: [
+  //     {
+        // path: 'menu1',
+        // component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        // name: 'Menu1',
+        // meta: { title: 'Menu1' },
+        // children: [
+        //   {
+        //     path: 'menu1-1',
+        //     component: () => import('@/views/nested/menu1/menu1-1'),
+        //     name: 'Menu1-1',
+        //     meta: { title: 'Menu1-1' }
+        //   },
+  //         {
+  //           path: 'menu1-2',
+  //           component: () => import('@/views/nested/menu1/menu1-2'),
+  //           name: 'Menu1-2',
+  //           meta: { title: 'Menu1-2' },
+  //           children: [
+  //             {
+  //               path: 'menu1-2-1',
+  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+  //               name: 'Menu1-2-1',
+  //               meta: { title: 'Menu1-2-1' }
+  //             },
+  //             {
+  //               path: 'menu1-2-2',
+  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+  //               name: 'Menu1-2-2',
+  //               meta: { title: 'Menu1-2-2' }
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           path: 'menu1-3',
+  //           component: () => import('@/views/nested/menu1/menu1-3'),
+  //           name: 'Menu1-3',
+  //           meta: { title: 'Menu1-3' }
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'menu2',
+  //       component: () => import('@/views/nested/menu2/index'),
+  //       meta: { title: 'menu2' }
+  //     }
+  //   ]
+  // },
+  //
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+  //       meta: { title: 'External Link', icon: 'link' }
+  //     }
+  //   ]
+  // },
 
   { path: '*', redirect: '/404', hidden: true }
 ]
