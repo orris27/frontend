@@ -21,70 +21,68 @@
     <el-table
       v-loading="listLoading"
       :key="tableKey"
-      :data="list"
+      :data="dataList"
       border
       fit
       highlight-current-row
       style="width: 100%; margin-top: 20px"
       @sort-change="sortChange">
-      <el-table-column :label="attr.house" prop="id" sortable="custom" align="center" width="65">
-        <template slot-scope="scope">
-          <span>{{ scope.row.id }}</span>
-        </template>
+      <!-- <el-table-column :label="attr.house" prop="id"> -->
+      <!-- <el-table-column :label="attr.house" prop="id" sortable="custom" align="center" width="80">
+      </el-table-column> -->
+      <el-table-column :label="attr.house" prop="house" sortable="custom" align="center" width="100">
+        <!-- <template slot-scope="scope">
+          <span>{{ scope.row.house }}</span>
+        </template> -->
       </el-table-column>
-      <el-table-column :label="attr.address" width="150px" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-        </template>
+      <el-table-column :label="attr.address" prop="address" width="150px" align="center">
+        <!-- <template slot-scope="scope">
+          <span>{{ scope.row.address }}</span>
+        </template> -->
       </el-table-column>
-      <el-table-column :label="attr.type" min-width="150px">
-        <template slot-scope="scope">
+      <el-table-column :label="attr.type" prop="type" min-width="150px">
+        <!-- <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
-        </template>
+        </template> -->
       </el-table-column>
-      <el-table-column :label="attr.author" width="110px" align="center">
+      <!-- <el-table-column :label="attr.status" prop="status" class-name="status-col" width="100"> -->
+        <!-- <template slot-scope="scope"> -->
+          <!-- <el-tag :type="status | statusFilter">{{ status }}</el-tag> -->
+          <!-- <el-tag >{{ status }}</el-tag> -->
+        <!-- </template> -->
+      <!-- </el-table-column> -->
+     <el-table-column
+      prop="status"
+      label="Tag"
+      width="100"
+      :filters="[{ text: 'Home', value: 'waiting' }, { text: 'Office', value: 'payed' }]"
+      :filter-method="filterTag"
+      filter-placement="bottom-end">
         <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
+          <el-tag
+            :type="scope.row.status | statusFilter"
+            disable-transitions>{{scope.row.status}}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column v-if="showReviewer" :label="attr.reviewer" width="110px" align="center">
-        <template slot-scope="scope">
-          <span style="color:red;">{{ scope.row.reviewer }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column :label="attr.importance" width="80px">
-        <template slot-scope="scope">
-          <svg-icon v-for="n in +scope.row.importance" :key="n" icon-class="star" class="meta-item__icon"/>
-        </template>
-      </el-table-column>
-      <el-table-column :label="attr.readings" align="center" width="95">
-        <template slot-scope="scope">
-          <span v-if="scope.row.pageviews" class="link-type" @click="handleFetchPv(scope.row.pageviews)">{{ scope.row.pageviews }}</span>
-          <span v-else>0</span>
-        </template>
-      </el-table-column>
-      <el-table-column :label="attr.status" class-name="status-col" width="100">
-        <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
-        </template>
-      </el-table-column>
+            <!-- :type="scope.row.status === 'waiting' ? 'primary' : 'success'" -->
+
       <el-table-column :label="attr.actions" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{ $t('table.edit') }}</el-button>
-          <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">{{ $t('table.publish') }}
+          <!-- <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{ $t('table.edit') }}</el-button> -->
+          <!-- <el-button v-if="scope.row.status!='waiting'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">publish
+          </el-button> -->
+          <el-button v-if="scope.row.status!='repairing'" size="mini" @click="handleModifyStatus(scope.row,'draft')">see more
           </el-button>
-          <el-button v-if="scope.row.status!='draft'" size="mini" @click="handleModifyStatus(scope.row,'draft')">{{ $t('table.draft') }}
-          </el-button>
-          <el-button v-if="scope.row.status!='deleted'" size="mini" type="danger" @click="handleModifyStatus(scope.row,'deleted')">{{ $t('table.delete') }}
-          </el-button>
+          <!-- <el-button v-if="scope.row.status!='finished'" size="mini" type="danger" @click="handleModifyStatus(scope.row,'deleted')">delete
+          </el-button> -->
         </template>
       </el-table-column>
     </el-table>
-<!--
+
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
 
-    <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
+    <!-- <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
         <el-form-item :label="$t('table.type')" prop="type">
           <el-select v-model="temp.type" class="filter-item" placeholder="Please select">
@@ -154,9 +152,10 @@ export default {
   filters: {
     statusFilter(status) {
       const statusMap = {
-        published: 'success',
-        draft: 'info',
-        deleted: 'danger'
+        waiting: 'success',
+        repairing: 'info',
+        finished: 'danger',
+        payed: 'danger'
       }
       return statusMap[status]
     },
@@ -166,11 +165,44 @@ export default {
   },
   data() {
     return {
+      // scope: [
+        // row: [
+        //   {
+        //     house: '1',
+        //     address: '123',
+        //     type: '1234',
+        //     status: 'finished'
+        //   }
+        //
+        // ],
+      dataList: [
+        {
+          house: 'house 1',
+          address: '31 Zheda Road',
+          type: 'electricity',
+          status: 'waiting'
+
+        },
+        {
+          house: 'house 2',
+          address: '32 Zheda Road',
+          type: 'ants',
+          status: 'payed'
+        }
+
+      ],
+      row: {
+        address: '123',
+
+      },
+
+      // ],
       form: {
         title: 'Title',
         importance: 'Imp',
         type: 'type',
       },
+
       attr: {
         house: 'House',
         address: 'Address',
@@ -184,7 +216,7 @@ export default {
       },
       tableKey: 0,
       list: null,
-      total: 0,
+      total: 1,
       listLoading: true,
       listQuery: {
         page: 1,
@@ -278,6 +310,9 @@ export default {
         status: 'published',
         type: ''
       }
+    },
+    filterTag(value, row) {
+      return row.tag === value;
     },
     handleCreate() {
       this.resetTemp()
