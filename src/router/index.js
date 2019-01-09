@@ -84,6 +84,7 @@ export const constantRouterMap = [
             name: 'Apply',
             component: () => import('@/views/repair/apply/index'),
             meta: { title: 'Apply', icon: 'form' }
+
           },
           {
             path: 'myRepair',
@@ -263,7 +264,18 @@ export const constantRouterMap = [
   //   ]
   // },
 
-  { path: '*', redirect: '/404', hidden: true }
+  {
+    path: '/handle',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'apply',
+        component: () => import("@/views/repair/apply/handle")
+      }
+    ]
+  },
+  { path: '*', redirect: '/404', hidden: true },
 ]
 
 export default new Router({
