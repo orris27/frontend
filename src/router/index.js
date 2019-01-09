@@ -5,6 +5,7 @@ import Router from 'vue-router'
 // detail: https://panjiachen.github.io/vue-element-admin-site/#/lazy-loading
 
 Vue.use(Router)
+//
 
 /* Layout */
 import Layout from '../views/layout/Layout'
@@ -48,7 +49,7 @@ export const constantRouterMap = [
     children: [{
       path: 'dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'dashboard', icon:'star' }
+      meta: { title: 'Homepage', icon:'star' }
 
     }]
   },
@@ -117,11 +118,11 @@ export const constantRouterMap = [
   // },
   //
   {
-    path: '/room',
+    path: '/info',
     component: Layout,
-    redirect: '/room/homepage',
-    name: 'Room',
-    meta: { title: 'MyRoom', icon: 'example' },
+    redirect: '/info/homepage',
+    name: 'Info',
+    meta: { title: 'Info', icon: 'example' },
     children: [
       {
         path: 'homepage',
@@ -129,12 +130,12 @@ export const constantRouterMap = [
         component: () => import('@/views/homepage/index'),
         meta: { title: 'Homepage', icon: 'form' }
       },
-      {
-        path: 'eWallet',
-        name: 'EWallet',
-        component: () => import('@/views/ewallet/index'),
-        meta: { title: 'eWallet', icon: 'form' }
-      },
+      // {
+      //   path: 'eWallet',
+      //   name: 'EWallet',
+      //   component: () => import('@/views/ewallet/index'),
+      //   meta: { title: 'eWallet', icon: 'form' }
+      // },
       {
         path: 'notification',
         name: 'Notification',
@@ -154,6 +155,22 @@ export const constantRouterMap = [
         component: () => import('@/views/credit/index'),
         meta: { title: 'Credit', icon: 'form' }
       }
+    ]
+  },
+  {
+    path: '/ewallet',
+    component: Layout,
+    redirect: '/ewallet/homepage',
+    name: 'eWallet',
+    meta: { title: 'eWallet', icon: 'form' },
+    children: [
+    {
+        path: 'homepage',
+        name: 'Homepage',
+        // component: () => import('@/views/homepage/index'),
+        component: () => import('@/views/ewallet/index'),
+        meta: { title: 'eWallet', icon: 'form' }
+      },
     ]
   },
   {
