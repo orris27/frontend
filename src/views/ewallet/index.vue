@@ -39,8 +39,39 @@
         </el-card>
       </el-col>
     </el-container>
-    
-      <Table :dataList="dataList"></Table>
+
+    <br>
+
+      <el-col :span="15" offset="3" class="text-center">
+        <el-table
+            :data="tableData"
+            border
+            show-header
+            fit>
+            <el-table-column
+              prop="Date"
+              label="Date"
+              >
+            </el-table-column>
+            <el-table-column
+              prop="Way"
+              label="Way"
+              >
+            </el-table-column>
+            <el-table-column
+              prop="Money"
+              label="Money"
+              >
+            </el-table-column>
+            <el-table-column
+              label="Operation"
+              >
+                <template slot-scope="scope">
+                <el-button type="text" size="small">See More</el-button>
+                </template>
+            </el-table-column>
+          </el-table>
+        </el-col>
   </div>
 </template>
 
@@ -63,34 +94,18 @@ export default {
       setPrefix: '',
       list: null,
       tableData: [{
-        cardNum: 'card01',
-        bankName: 'bank01',
+        Date: '2019/1/20',
+        Way: 'company 1',
+        Money: '310'
       }, {
-        cardNum: 'card01',
-        bankName: 'bank01',
+        Date: '2019/1/1',
+        Way: 'company 2',
+        Money: '100'
       }, {
-        cardNum: 'card01',
-        bankName: 'bank01',
-      }, {
-        cardNum: 'card01',
-        bankName: 'bank01',
-      }],
-      dataList: [
-        {
-          house: 'house 111',
-          address: '31 Zheda Road',
-          type: 'electricity',
-          status: 'waiting'
-
-        },
-        {
-          house: 'house 2',
-          address: '32 Zheda Road',
-          type: 'ants',
-          status: 'payed'
-        }
-
-      ]
+        Date: '2019/1/1',
+        Way: 'company 3',
+        Money: '200'
+      }]
     }
   },
   computed: {
