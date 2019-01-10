@@ -11,6 +11,8 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import router from './router'
 import store from './store'
+import * as VueGoogleMaps from 'vue2-google-maps'
+
 
 import '@/icons' // icon
 import '@/permission' // permission control
