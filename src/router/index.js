@@ -305,6 +305,10 @@ export const constantRouterMap = [
       {
         path: 'apply',
         component: () => import("@/views/repair/apply/handle")
+      },
+      {
+        path: 'map',
+        component: () => import("@/views/server/service/map")
       }
     ]
   },

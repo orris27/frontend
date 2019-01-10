@@ -35,9 +35,8 @@
 
         <el-table-column :label="attr.actions" align="center" width="230" class-name="small-padding fixed-width">
           <template slot-scope="scope">
-            <!-- <el-button v-if="scope.row.status!='repairing'" size="mini" @click="handleModifyStatus(scope.row,'draft')">see more
-            </el-button> -->
             <el-button v-waves class="filter-item" type="primary" @click="handleFilter">Remove</el-button>
+            <el-button v-waves class="filter-item" type="primary" @click="handleMap">Map</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -194,6 +193,9 @@ export default {
     handleFilter() {
       this.listQuery.page = 1
       this.getList()
+    },
+    handleMap() {
+      this.$router.push("/handle/map")
     },
     handleModifyStatus(row, status) {
       this.$message({
