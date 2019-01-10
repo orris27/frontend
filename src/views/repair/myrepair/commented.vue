@@ -74,39 +74,6 @@
           </el-button> -->
           <el-button v-if="scope.row.status!='repairing'" size="mini" @click="handleModifyStatus(scope.row,'draft')">see more
           </el-button>
-
-
-
-          <el-button v-if="scope.row.status!='repairing'" size="mini" @click="handlePay(scope.row,'draft')">pay
-          </el-button>
-        <el-dialog v-el-drag-dialog :visible.sync="dialogTableVisible" title="Shipping address" @dragDialog="handleDrag">
-          <el-select ref="select" v-model="value" placeholder="请选择">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
-          </el-select>
-          <el-table :data="gridData">
-            <el-table-column property="date" label="Date" width="150"/>
-            <el-table-column property="name" label="Name" width="200"/>
-            <el-table-column property="address" label="Address"/>
-          </el-table>
-
-          <el-form ref="form" :model="form" label-width="120px">
-            <el-form-item label="Description: ">
-              <el-col :span="9">
-                <el-input v-model="form.desc" type="textarea"/>
-              </el-col>
-            </el-form-item>
-            <el-form-item>
-              <el-button type="primary" @click="onSubmit">Submit</el-button>
-            </el-form-item>
-
-
-          </el-form>
-
-        </el-dialog>
-
-
-
-
           <!-- <el-button v-if="scope.row.status!='finished'" size="mini" type="danger" @click="handleModifyStatus(scope.row,'deleted')">delete
           </el-button> -->
         </template>
@@ -160,7 +127,6 @@
 </template>
 
 <script>
-import elDragDialog from '@/directive/el-dragDialog'
 import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article'
 import waves from '@/directive/waves' // Waves directive
 import { parseTime } from '@/utils'
@@ -182,7 +148,7 @@ const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
 export default {
   name: 'Commented',
   components: { Pagination },
-  directives: { waves, elDragDialog },
+  directives: { waves },
   filters: {
     statusFilter(status) {
       const statusMap = {
@@ -199,36 +165,6 @@ export default {
   },
   data() {
     return {
-      form: {
-        desc: '',
-      },
-
-      dialogTableVisible: false,
-      options: [
-        { value: '选项1', label: '黄金糕' },
-        { value: '选项2', label: '双皮奶' },
-        { value: '选项3', label: '蚵仔煎' },
-        { value: '选项4', label: '龙须面' }
-      ],
-      value: '',
-      gridData: [{
-        date: '2016-05-02',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }, {
-        date: '2016-05-04',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }, {
-        date: '2016-05-01',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }, {
-        date: '2016-05-03',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }],
-
       // scope: [
         // row: [
         //   {
@@ -324,21 +260,6 @@ export default {
     this.getList()
   },
   methods: {
-    onSubmit() {
-      this.$message({
-        message: 'submit!',
-        type: 'success'
-      })
-      
-      setTimeout(() =>{
-        this.dialogTableVisible = false
-      },1.5 * 1000)
-    
-    },
-    handleDrag() {
-      this.$refs.select.blur()
-    },
-
     getList() {
       this.listLoading = true
       setTimeout(() => {
@@ -360,18 +281,10 @@ export default {
     },
     handleModifyStatus(row, status) {
       this.$message({
-        message: 'ok',
+        message: '操作成功',
         type: 'success'
       })
       row.status = status
-    },
-    handlePay(row,status) {
-        this.dialogTableVisible = true
-        // this.$message({
-        //   message: 'pay',
-        //   type: 'info'
-        // })
-
     },
     sortChange(data) {
       const { prop, order } = data
