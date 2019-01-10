@@ -30,17 +30,17 @@
       <!-- <el-table-column :label="attr.house" prop="id"> -->
       <!-- <el-table-column :label="attr.house" prop="id" sortable="custom" align="center" width="80">
       </el-table-column> -->
-      <el-table-column :label="attr.house" prop="house" sortable="custom" align="center" width="10 0">
+      <el-table-column :label="attr.house" prop="house" sortable="custom" align="center" width="100">
         <!-- <template slot-scope="scope">
           <span>{{ scope.row.house }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.address" prop="address" width="150px" align="center">
+      <el-table-column :label="attr.address" prop="address" min-width="150px" align="center">
         <!-- <template slot-scope="scope">
           <span>{{ scope.row.address }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.type" prop="type" min-width="150px">
+      <el-table-column :label="attr.type" prop="type" width="150px">
         <!-- <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
@@ -176,19 +176,127 @@ export default {
         //
         // ],
       dataList: [
-        {
-          house: 'house 1',
-          address: '31 Zheda Road',
-          type: 'electricity',
-          status: 'waiting'
 
+                {
+          house: 'house 2',
+          address: '34 Lane 125, XiKang Road(South), HongKou District, Shanghai',
+          type: 'ants',
+          status: 'waiting'
         },
         {
-          house: 'house 2',
-          address: '32 Zheda Road',
+  house: 'house 1',
+  address: '32 Zheda Road, Xihu District, Hangzhou, Zhejiang',
+  type: 'electricity',
+  status: 'payed'
+},
+{
+  house: 'house 2',
+  address: '63 Fuxing Road, Haidian District, Beijing',
+  type: 'water',
+  status: 'payed'
+},
+{
+  house: 'house 3',
+  address: '53 Kaiping Road, Qingdao, Shandong',
+  type: 'insects',
+  status: 'payed'
+},
+
+
+      {
+          house: 'house12',
+          address: 'No. 389, wenyi road, xihu district, hangzhou city, zhejiang province',
+          type: 'water heater',
+          status: 'finished'
+        },
+      {
+          house: 'house13',
+          address: 'No. 318, xueyuan road, xihu district, hangzhou city, zhejiang province',
           type: 'ants',
-          status: 'payed'
-        }
+          status: 'finished'
+        },
+      {
+          house: 'house14',
+          address: 'No. 11, cuibai road, wenyi road, xihu district, hangzhou city, zhejiang province',
+          type: 'floor',
+          status: 'finished'
+        },
+        {
+  house: 'house2',
+  address: 'No.98, gudun road, xihu district, hangzhou city, zhejiang province',
+  type: 'ants',
+  status: 'finished'
+},
+{
+  house: 'house4',
+  address: 'No. 1, zhijiang road, fangjia road, xihu district, hangzhou city, zhejiang province',
+  type: 'floor',
+  status: 'finished'
+},
+
+{
+    house: 'house6',
+    address: 'No.143 xixi road, west lake,hangzhou city, zhejiang province',
+    type: 'gas',
+    status: 'finished'
+  },
+{
+  house: 'house 16',
+  address: '119 Zixia Road, Huangpu District, Shanghai',
+  type: 'foundation',
+  status: 'payed'
+},
+{
+    house: 'house8',
+    address: 'No.10 zhenhua road, xihu district, hangzhou city, zhejiang province',
+    type: 'water heater',
+    status: 'finished'
+},
+
+{
+  house: 'house7',
+  address: 'Shijicheng shichao road, xiaoshan district, hangzhou city, zhejiang province',
+  type: 'lamps',
+  status: 'repairing'
+},
+  {
+  house: 'house3',
+  address: 'No. 1, zhijiang road, fangjia road, xihu district, hangzhou city, zhejiang province',
+  type: 'water supply',
+  status: 'finished'
+},
+{
+  house: 'house 1',
+  address: '32 Zheda Road, Xihu District, Hangzhou, Zhejiang',
+  type: 'electricity',
+  status: 'repairing'
+},
+
+{
+  house: 'house 17',
+  address: '836 Guangnan Road, Jindong District, Jinhua, Zhejiang',
+  type: 'furniture',
+  status: 'payed'
+},
+{
+  house: 'house 12',
+  address: '108 Yaan Street, Wuchang District, Wuhan, Hubei',
+  type: 'garden cleaning',
+  status: 'repairing'
+},
+{
+    house: 'house7',
+    address: 'Shijicheng shichao road, xiaoshan district, hangzhou city, zhejiang province',
+    type: 'lamps',
+    status: 'finished'
+  },
+{
+  house: 'house 18',
+  address: '17 Gymnasium Road, Kaifu District, Changsha, Hunan',
+  type: 'ventilation system',
+  status: 'payed'
+},
+
 
       ],
       row: {

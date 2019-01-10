@@ -179,7 +179,7 @@ export default {
 
         {
   house: 'house 1',
-  address: '32 Zheda Road, Xihu District, Hangzhou, Zhejiang',
+  address: 'No.188 zijinghua road, xihu district, hangzhou city, zhejiang province',
   type: 'electricity',
   status: 'payed'
 },

@@ -3,8 +3,8 @@
     <el-form ref="form" :model="form" label-width="120px">
       <el-form-item label="Company: ">
         <el-select v-model="form.name" placeholder="Company name: ">
-          <el-option label="company 1" value="1"></el-option>
-          <el-option label="company 2" value="1"></el-option>
+          <el-option label="company 1" value="1" default></el-option>
+          <el-option label="company 2" value="2"></el-option>
         </el-select>
       </el-form-item>
 
@@ -48,10 +48,15 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$message('hello')
+      this.$message({
+        message: 'success!',
+        type: 'success'
+
+      })
     },
     onBack() {
-      this.$message('back')
+      // this.$message('back')
+      this.$router.push("/house/repair/apply")
     }
   }
 }

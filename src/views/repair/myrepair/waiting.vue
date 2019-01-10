@@ -35,12 +35,12 @@
           <span>{{ scope.row.house }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.address" prop="address" width="150px" align="center">
+      <el-table-column :label="attr.address" prop="address" min-width="150px" align="center">
         <!-- <template slot-scope="scope">
           <span>{{ scope.row.address }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.type" prop="type" min-width="150px">
+      <el-table-column :label="attr.type" prop="type" width="150px">
         <!-- <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
@@ -178,14 +178,14 @@ export default {
       dataList: [
         {
           house: 'house 1',
-          address: '31 Zheda Road',
+          address: '34 Lane 125, XiKang Road(South), HongKou District, Shanghai',
           type: 'electricity',
           status: 'waiting'
 
         },
         {
           house: 'house 2',
-          address: '32 Zheda Road',
+          address: '34 Lane 125, XiKang Road(South), HongKou District, Shanghai',
           type: 'ants',
           status: 'waiting'
         }

@@ -41,11 +41,30 @@
           <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
-      <el-form-item>
+
+
+
+<el-upload
+  action="https://jsonplaceholder.typicode.com/posts/"
+  list-type="picture-card"
+  :on-preview="handlePictureCardPreview"
+  :on-remove="handleRemove">
+
+  <i class="el-icon-plus" ></i>
+</el-upload>
+<el-dialog :visible.sync="dialogVisible">
+  <img width="100%" :src="dialogImageUrl" alt="">
+</el-dialog>
+
+
+
+
+      <el-form-item style="margin-top: 20px">
         <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
           Sign up
         </el-button>
       </el-form-item>
+
       <div class="tips">
         <span style="margin-right:20px;">Have account</span>
         <el-button type="primary" round v-on:click="activateFlag">sign in</el-button>
@@ -76,6 +95,8 @@ export default {
       }
     }
     return {
+      dialogImageUrl: '',
+dialogVisible: false,
       loginForm: {
         username: 'admin',
         password: 'admin'
@@ -98,6 +119,13 @@ export default {
     }
   },
   methods: {
+    handleRemove(file, fileList) {
+  console.log(file, fileList);
+},
+handlePictureCardPreview(file) {
+  this.dialogImageUrl = file.url;
+  this.dialogVisible = true;
+},
     activateFlag() {
       console.log('helo');
       this.$emit('activate')
