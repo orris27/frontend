@@ -5,16 +5,26 @@
       <el-tab-pane label="All" name="all">
         <Table></Table>
       </el-tab-pane>
-      <el-tab-pane label="New" name="new">No data</el-tab-pane>
-      <el-tab-pane label="Repairing" name="repairing">No data</el-tab-pane>
-      <el-tab-pane label="to be commented" name="comment">No data</el-tab-pane>
+      <el-tab-pane label="Waiting" name="waiting">
+        <Waiting></Waiting>
+      </el-tab-pane>
+      <el-tab-pane label="Repairing" name="repairing">
+        <Repairing></Repairing>
+      </el-tab-pane>
+      <!-- <el-tab-pane label="Repairing" name="repairing">No data</el-tab-pane> -->
+      <el-tab-pane label="Commented" name="commented">
+        <Commented></Commented>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 <script>
 import Table from '@/views/repair/myrepair/table' // Secondary package based on el-pagination
+import Waiting from '@/views/repair/myrepair/waiting' // Secondary package based on el-pagination
+import Repairing from '@/views/repair/myrepair/repairing' // Secondary package based on el-pagination
+import Commented from '@/views/repair/myrepair/commented' // Secondary package based on el-pagination
   export default {
-    components: { Table },
+    components: { Table, Repairing, Commented, Waiting },
     data() {
       return {
         activeName: 'all'
