@@ -49,7 +49,7 @@ export const constantRouterMap = [
     children: [{
       path: 'dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Homepage', icon:'star' }
+      meta: { title: 'Homepage', icon:'dashboard' }
 
     },{ path: 'dragKanban', component: () => import('@/views/dragKanban'), hidden: true }]
   },
@@ -58,7 +58,7 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/house/myHouse',
     name: 'House',
-    meta: { title: 'House', icon: 'example' },
+    meta: { title: 'House', icon: 'peoples' },
     children: [
       {
         path: 'myHouse',
@@ -148,19 +148,19 @@ export const constantRouterMap = [
         name: 'Notification',
         // component: () => import('@/views/form/index'),
         component: () => import('@/views/test/dragKanban'),
-        meta: { title: 'Notification', icon: 'form' }
+        meta: { title: 'Notification', icon: 'clipboard' }
       },
       {
         path: 'loan',
         name: 'Loan',
         component: () => import('@/views/loan/index'),
-        meta: { title: 'Loan', icon: 'form' }
+        meta: { title: 'Loan', icon: 'example' }
       },
       {
         path: 'credit',
         name: 'Credit',
         component: () => import('@/views/credit/index'),
-        meta: { title: 'Credit', icon: 'form' }
+        meta: { title: 'Credit', icon: 'theme' }
       }
     ]
   },
@@ -175,19 +175,19 @@ export const constantRouterMap = [
         path: 'info',
         name: 'Info',
         component: () => import('@/views/server/info/index'),
-        meta: { title: 'Info', icon: 'guide' }
+        meta: { title: 'Info', icon: 'user' }
       },
       {
         path: 'repair',
         name: 'Repair',
         component: () => import('@/views/server/repair/index'),
-        meta: { title: 'Repair', icon: 'guide' }
+        meta: { title: 'Repair', icon: 'lock' }
       },
       {
         path: 'service',
         name: 'Service',
         component: () => import('@/views/server/service/index'),
-        meta: { title: 'Service', icon: 'guide' }
+        meta: { title: 'Service', icon: 'shopping' }
       }
     ]
   },
@@ -196,14 +196,14 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/ewallet/homepage',
     name: 'eWallet',
-    meta: { title: 'eWallet', icon: 'form' },
+    meta: { title: 'eWallet', icon: 'money' },
     children: [
     {
         path: 'homepage',
         name: 'Homepage',
         // component: () => import('@/views/homepage/index'),
         component: () => import('@/views/ewallet/index'),
-        meta: { title: 'eWallet', icon: 'form' }
+        meta: { title: 'eWallet', icon: 'money' }
       },
     ]
   },
@@ -212,7 +212,7 @@ export const constantRouterMap = [
     component: Layout,
     // redirect: '/service/myHome',
     name: 'Service',
-    meta: { title: 'Service', icon: 'example' },
+    meta: { title: 'Service', icon: 'international' },
     children: [
       {
         path: 'oldFamily',
@@ -224,7 +224,7 @@ export const constantRouterMap = [
         path: 'aid',
         name: 'Aid',
         component: () => import('@/views/form/aid'),
-        meta: { title: 'Assistance', icon: 'tree' }
+        meta: { title: 'Map', icon: 'tree' }
       }
     ]
   },

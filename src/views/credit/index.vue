@@ -1,5 +1,5 @@
 <template>
-  <div id="" class="mixin-components-container">
+  <div id="" class="app-container">
     <el-row :gutter="20" style="margin-top:50px;">
        <el-col :span="12">
          <el-card class="box-card">
@@ -25,13 +25,16 @@
      </el-row>
 
 
-    <code>Credit History </code>
+
+     <el-tag style="margin-top: 100px">Credit History</el-tag>
 
 
      <el-table
       :data="tableData"
       border
-      style="width: 100%">
+      :row-class-name="tableRowClassName"
+      style="width: 100%; margin-top: 50px">
+
       <el-table-column
         prop="category"
         label="Category"
@@ -81,6 +84,16 @@ export default {
         date: '2018.8.8'
       }]
     }
+  },
+  methods: {
+    tableRowClassName({row, rowIndex}) {
+        if (rowIndex === 1) {
+          return 'warning-row';
+        } else if (rowIndex === 3) {
+          return 'success-row';
+        }
+        return '';
+      }
   }
 
 }

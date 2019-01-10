@@ -1,7 +1,7 @@
 <template>
-  <div class="components-container">
-    <el-container>
-      <el-col :span="7" offset="2" class="text-center">
+  <div class="app-container">
+    <el-container style="margin-top:100px">
+      <el-col :span="10" offset="1" class="text-center">
         <el-card class="box-card">
           <count-to
             ref="example"
@@ -20,7 +20,7 @@
         </el-card>
       </el-col>
 
-      <el-col :span="7" offset="3" class="text-center">
+      <el-col :span="10" offset="1" class="text-center">
         <el-card class="box-card">
           <count-to
             ref="example"
@@ -42,7 +42,7 @@
 
     <br>
 
-      <el-col :span="15" offset="3" class="text-center">
+      <el-col :span="15" offset="3" class="text-center" style="margin-top:100px">
         <el-table
             :data="tableData"
             border
