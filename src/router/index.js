@@ -164,6 +164,33 @@ export const constantRouterMap = [
       }
     ]
   },
+
+  {
+    path: '/server',
+    component: Layout,
+    name: 'Server',
+    meta: { title: 'Server', icon: 'guide' },
+    children: [
+      {
+        path: 'info',
+        name: 'Info',
+        component: () => import('@/views/server/info/index'),
+        meta: { title: 'Info', icon: 'guide' }
+      },
+      {
+        path: 'repair',
+        name: 'Repair',
+        component: () => import('@/views/server/repair/index'),
+        meta: { title: 'Repair', icon: 'guide' }
+      },
+      {
+        path: 'service',
+        name: 'Service',
+        component: () => import('@/views/server/service/index'),
+        meta: { title: 'Service', icon: 'guide' }
+      }
+    ]
+  },
   {
     path: '/ewallet',
     component: Layout,
