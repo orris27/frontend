@@ -9,36 +9,40 @@
           <el-form ref="form" :model="form" label-width="120px">
             <el-row :gutter="20">
                 <el-col :span="16">
-              <el-form-item label="Address: ">
-                  <!-- <el-input v-model="form.name"/> -->
-                  31 zheda road Xihu, Hangzhou Zhejiang
-              </el-form-item>
-            <el-form-item label="Type: ">
-              Apartment
-            </el-form-item>
-            <el-form-item label="Area: ">
-              120 m<sup>2</sup>
-            </el-form-item>
+                  <el-form-item label="Address: ">
+                      <!-- <el-input v-model="form.name"/> -->
+                      31 zheda road Xihu, Hangzhou Zhejiang
+                  </el-form-item>
+                  <el-form-item label="Type: ">
+                    Apartment
+                  </el-form-item>
+                  <el-form-item label="Area: ">
+                    120 m<sup>2</sup>
+                  </el-form-item>
+
+                  <el-form-item label="Room: ">
+                    3 Bedrooms, <br>
+                    1 Kitchen, <br>
+                    2 Bathrooms
+                  </el-form-item>
+
+
+                  <el-form-item label="Parking: ">
+                    1
+                  </el-form-item>
+                  <el-form-item label="State: ">
+                    Rented by you till 12.2.2019
+                  </el-form-item>
                 </el-col>
                 <el-col :span="8">
-                  <img src="/static/images/house1.jpeg" width="150" height="auto" alt="">
+                  <!-- <img src="/static/images/house1.jpeg" width="150" height="auto" alt=""> -->
+                  <img src="/static/images/myhouse.jpg" class="image">
                 </el-col>
             </el-row>
 
-            <el-form-item label="Room: ">
-              3 Bedrooms, <br>
-              1 Kitchen, <br>
-              2 Bathrooms
-            </el-form-item>
 
 
-            <el-form-item label="Parking: ">
-              1
-            </el-form-item>
 
-            <el-form-item label="State: ">
-              Rented by you till 12.2.2019
-            </el-form-item>
 
 
             <!-- <el-form-item label="Description">

@@ -35,12 +35,12 @@
           <span>{{ scope.row.house }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.address" prop="address" width="150px" align="center">
+      <el-table-column :label="attr.address" prop="address" min-width="150px" align="center">
         <!-- <template slot-scope="scope">
           <span>{{ scope.row.address }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.type" prop="type" min-width="150px">
+      <el-table-column :label="attr.type" prop="type" width="150px">
         <!-- <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
@@ -70,10 +70,10 @@
       <el-table-column :label="attr.actions" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <!-- <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{ $t('table.edit') }}</el-button> -->
-          <!-- <el-button v-if="scope.row.status!='waiting'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">publish
-          </el-button> -->
-          <el-button v-if="scope.row.status!='repairing'" size="mini" @click="handleModifyStatus(scope.row,'draft')">see more
+          <el-button v-if="scope.row.status!='waiting'" size="mini"  @click="handleModifyStatus(scope.row,'published')">see more
           </el-button>
+          <!-- <el-button v-if="scope.row.status!='repairing'" size="mini" @click="handleModifyStatus(scope.row,'draft')">see more
+          </el-button> -->
           <!-- <el-button v-if="scope.row.status!='finished'" size="mini" type="danger" @click="handleModifyStatus(scope.row,'deleted')">delete
           </el-button> -->
         </template>
@@ -177,17 +177,102 @@ export default {
         // ],
       dataList: [
         {
-          house: 'house 1',
+  house: 'house 1',
+  address: '32 Zheda Road, Xihu District, Hangzhou, Zhejiang',
+  type: 'electricity',
+  status: 'repairing'
+},
+{
+  house: 'house 2',
+  address: '63 Fuxing Road, Haidian District, Beijing',
+  type: 'water',
+  status: 'repairing'
+},
+{
+  house: 'house 1',
+  address: '32 Zheda Road, Xihu District, Hangzhou, Zhejiang',
+  type: 'insects',
+  status: 'repairing'
+},
+{
+  house: 'house 4',
+  address: '55 Wenyixi Road, Xihu, Shenyang, Liaoning',
+  type: 'structure',
+  status: 'repairing'
+},
+{
+  house: 'house 5',
+  address: '111, Zhongshan,Changshan District, Shanghai',
+  type: 'furniture',
+  status: 'repairing'
+},
+{
+  house: 'house 6',
+  address: '1 Jianguo, Nanyang, Henan',
+  type: 'others',
+  status: 'repairing'
+},
+{
+  house: 'house 7',
+  address: '34 Long Chang Li, Xiamen, Fujian',
+  type: 'roof',
+  status: 'repairing'
+},
+{
+  house: 'house 8',
+  address: '198 Qidi Road, Xiaoshan District, Hangzhou, Zhejiang',
+  type: 'floor',
+  status: 'repairing'
+},
+{
+  house: 'house 2',
+  address: '63 Fuxing Road, Haidian District, Beijing',
+  type: 'doors and windows',
+  status: 'repairing'
+},
+{
+  house: 'house7',
+  address: 'Shijicheng shichao road, xiaoshan district, hangzhou city, zhejiang province',
+  type: 'lamps',
+  status: 'repairing'
+},
+{
+  house: 'house 1',
+  address: '32 Zheda Road, Xihu District, Hangzhou, Zhejiang',
+  type: 'electricity',
+  status: 'repairing'
+},
+{
+  house: 'house 12',
+  address: '108 Yaan Street, Wuchang District, Wuhan, Hubei',
+  type: 'garden cleaning',
+  status: 'repairing'
+},
+{
+  house: 'house 13',
+  address: '153 Guanghua Road, Changan District, Shijiazhuang, Hebei',
+  type: 'heating system',
+  status: 'repairing'
+},
+{
+  house: 'house 14',
+  address: 'Yugu road, xihu district, Chengdu, Sichuan',
+  type: 'ants',
+  status: 'repairing'
+},
+
+        {
+          house: 'house 15',
           address: '31 Zheda Road',
           type: 'electricity',
-          status: 'waiting'
+          status: 'repairing'
 
         },
         {
-          house: 'house 2',
+          house: 'house 15',
           address: '32 Zheda Road',
           type: 'ants',
-          status: 'payed'
+          status: 'repairing'
         }
 
       ],

@@ -25,9 +25,9 @@
       @sort-change="sortChange">
       <el-table-column :label="attr.house" prop="house" sortable="custom" align="center" width="100">
       </el-table-column>
-      <el-table-column :label="attr.address" prop="address" width="150px" align="center">
+      <el-table-column :label="attr.address" prop="address" min-width="150px" align="center">
       </el-table-column>
-      <el-table-column :label="attr.type" prop="type" min-width="150px">
+      <el-table-column :label="attr.type" prop="type" width="150px">
       </el-table-column>
      <el-table-column
       prop="status"
@@ -140,7 +140,7 @@ export default {
       const statusMap = {
         waiting: 'success',
         repairing: 'info',
-        finished: 'danger',
+        finished: 'warning',
         payed: 'danger'
       }
       return statusMap[status]
@@ -209,18 +209,126 @@ export default {
       }],
       dataList: [
         {
-          house: 'house 1',
-          address: '31 Zheda Road',
-          type: 'electricity',
-          status: 'waiting'
+  house: 'house 1',
+  address: 'No.188 zijinghua road, xihu district, hangzhou city, zhejiang province',
+  type: 'electricity',
+  status: 'finished'
+},
+{
+  house: 'house 2',
+  address: 'No.98, gudun road, xihu district, hangzhou city, zhejiang province',
+  type: 'ants',
+  status: 'finished'
+},
+{
+  house: 'house 3',
+  address: 'No. 1, zhijiang road, fangjia road, xihu district, hangzhou city, zhejiang province',
+  type: 'water supply',
+  status: 'finished'
+},
+{
+  house: 'house 4',
+  address: 'No. 1, zhijiang road, fangjia road, xihu district, hangzhou city, zhejiang province',
+  type: 'floor',
+  status: 'finished'
+},
+{
+  house: 'house 5',
+  address: 'No. 1, zhijiang road, fangjia road, xihu district, hangzhou city, zhejiang province',
+  type: 'ventilate',
+  status: 'finished'
+},
+{
+  house: 'house 6',
+  address: 'No.143 xixi road, west lake,hangzhou city, zhejiang province',
+  type: 'gas',
+  status: 'finished'
+},
+{
+  house: 'house 7',
+  address: 'Shijicheng shichao road, xiaoshan district, hangzhou city, zhejiang province',
+  type: 'lamps',
+  status: 'finished'
+},
+{
+  house: 'house 8',
+  address: 'No.10 zhenhua road, xihu district, hangzhou city, zhejiang province',
+  type: 'water heater',
+  status: 'finished'
+},
+{
+  house: 'house 9',
+  address: 'Tianmu mountain road, xihu district, hangzhou city, zhejiang province',
+  type: 'wall',
+  status: 'finished'
+},
+{
+  house: 'house 10',
+  address: 'Yugu road, xihu district, hangzhou city, zhejiang province',
+  type: 'other',
+  status: 'finished'
+},
+{
+  house: 'house 11',
+  address: 'No.11 xiening bridge xihu district, hangzhou city, zhejiang province',
+  type: 'pipe rushing',
+  status: 'finished'
+},
+{
+  house: 'house 12',
+  address: 'No. 389, wenyi road, xihu district, hangzhou city, zhejiang province',
+  type: 'water heater',
+  status: 'finished'
+},
+{
+  house: 'house 13',
+  address: 'No. 318, xueyuan road, xihu district, hangzhou city, zhejiang province',
+  type: 'ants',
+  status: 'finished'
+},
+{
+  house: 'house 14',
+  address: 'No. 11, cuibai road, wenyi road, xihu district, hangzhou city, zhejiang province',
+  type: 'floor',
+  status: 'finished'
+},
+{
+  house: 'house 15',
+  address: 'No. 353, wantang road, xihu district, hangzhou city, zhejiang province',
+  type: 'pipe cleaning',
+  status: 'finished'
+},
+{
+  house: 'house 16',
+  address: 'No.2 lianhua street, xihu district, hangzhou city, zhejiang province',
+  type: 'water supply',
+  status: 'finished'
+},
+{
+  house: 'house 17',
+  address: 'West wener road, xihu district, hangzhou city, zhejiang province',
+  type: 'building structure',
+  status: 'finished'
+},
+{
+  house: 'house 18',
+  address: 'No. 589, west wener road, xihu district, hangzhou city, zhejiang province',
+  type: 'water heater',
+  status: 'finished'
+},
+{
+  house: 'house 19',
+  address: 'No.69 zijinghua road, xihu district, hangzhou city, zhejiang province',
+  type: 'gas',
+  status: 'finished'
+},
+{
+  house: 'house 20',
+  address: 'No.111 west wensan road, xihu district, hangzhou city, zhejiang province',
+  type: 'other',
+  status: 'finished'
+}
 
-        },
-        {
-          house: 'house 2',
-          address: '32 Zheda Road',
-          type: 'ants',
-          status: 'payed'
-        }
 
       ],
       row: {

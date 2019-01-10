@@ -30,7 +30,7 @@
       <!-- <el-table-column :label="attr.house" prop="id"> -->
       <!-- <el-table-column :label="attr.house" prop="id" sortable="custom" align="center" width="80">
       </el-table-column> -->
-      <el-table-column :label="attr.house" prop="house" sortable="custom" align="center" width="100">
+      <el-table-column :label="attr.house" prop="house" sortable="custom" align="center" width="10 0">
         <!-- <template slot-scope="scope">
           <span>{{ scope.row.house }}</span>
         </template> -->
@@ -154,7 +154,7 @@ export default {
       const statusMap = {
         waiting: 'success',
         repairing: 'info',
-        finished: 'danger',
+        finished: 'warning',
         payed: 'danger'
       }
       return statusMap[status]
