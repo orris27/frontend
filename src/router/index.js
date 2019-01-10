@@ -91,6 +91,12 @@ export const constantRouterMap = [
             name: 'MyRepair',
             component: () => import('@/views/repair/myrepair/index'),
             meta: { title: 'My Repair', icon: 'form' }
+          },
+          {
+            path: 'chart',
+            name: 'chart',
+            component: () => import('@/views/repair/chart/index'),
+            meta: { title: 'Chart', icon: 'chart' }
           }
         ]
       }
