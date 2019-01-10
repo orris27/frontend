@@ -275,6 +275,30 @@ export const constantRouterMap = [
       }
     ]
   },
+
+  {
+    path: 'external-link',
+    component: Layout,
+    meta: { title: 'External Link', icon:'link' },
+    children: [
+      {
+        path: 'https://www.zillow.com/',
+        meta: { title: 'Zillow', icon: 'guide' }
+      },
+      {
+        path: 'https://streeteasy.com/',
+        meta: { title: 'StreetEasy', icon: 'peoples' }
+      },
+      {
+        path: 'https://www.nak  edapartments.com/',
+        meta: { title: 'NakeDapartments', icon: 'peoples' }
+      },
+      {
+        path: 'https://www.trulia.com/',
+        meta: { title: 'Trulia', icon: 'guide 2' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true },
 ]
 
