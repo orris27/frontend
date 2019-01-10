@@ -3,80 +3,69 @@
     <el-row>
       <el-card class="box-card">
         <div slot="header" class="clearfix">
-          <span>House 1</span>
+          <span>Information</span>
         </div>
         <div style="margin-bottom:50px;">
-          <el-col :span="6" offset="1" class="text-center">
+          <el-form ref="form" :model="form" label-width="120px">
+            <el-row :gutter="20">
+                <el-col :span="16">
+              <el-form-item label="Address: ">
+                  <!-- <el-input v-model="form.name"/> -->
+                  31 zheda road Xihu, Hangzhou Zhejiang
+              </el-form-item>
+            <el-form-item label="Type: ">
+              Apartment
+            </el-form-item>
+            <el-form-item label="Area: ">
+              120 m<sup>2</sup>
+            </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <img src="/static/images/house1.jpeg" width="150" height="auto" alt="">
+                </el-col>
+            </el-row>
 
-            <img src="/static/images/house1.jpeg" width="100%" height="auto" alt="">
-            <ul>
-              <li><el-button type="info" size="medium" round>&nbsp;&nbsp;Modify Info&nbsp;&nbsp;</el-button></li><br>
-              <li><el-button type="info" size="medium" round>Upload Photos</el-button></li><br>
-              <input ref="excel-upload-input" class="excel-upload-input" type="file" style="display:none">
-              <li><el-button type="info" size="medium" round @click="handleUpload" >Upload Report</el-button></li><br>
-              <li><el-button type="info" size="medium" round @click="jump">Repair Remind</el-button></li><br>
-            </ul>
-          </el-col>
-
-          <el-col :span="14" offset="2" class="text-center">
-            <el-table
-            :data="tableData"
-            border
-            show-header
-            fit
-            style="width: 100%">
-            <el-table-column
-              prop="attribute"
-              width="100"
-              >
-            </el-table-column>
-            <el-table-column
-              prop="value"      
-              >
-            </el-table-column>
-          </el-table>
-          </el-col>
-        </div>
-      </el-card>
-
-      </br>
+            <el-form-item label="Room: ">
+              3 Bedrooms, <br>
+              1 Kitchen, <br>
+              2 Bathrooms
+            </el-form-item>
 
 
-      <el-card class="box-card">
-        <div slot="header" class="clearfix">
-          <span>House 2</span>
-        </div>
-        <div style="margin-bottom:50px;">
-          <el-col :span="6" offset="1" class="text-center">
+            <el-form-item label="Parking: ">
+              1
+            </el-form-item>
 
-            <img src="/static/images/house1.jpeg" width="100%" height="auto" alt="">
-            <ul>
-              <li><el-button type="info" size="medium" round>&nbsp;&nbsp;Modify Info&nbsp;&nbsp;</el-button></li><br>
-              <li><el-button type="info" size="medium" round>Upload Photos</el-button></li><br>
-              <input ref="excel-upload-input" class="excel-upload-input" type="file" style="display:none">
-              <li><el-button type="info" size="medium" round @click="handleUpload" >Upload Report</el-button></li><br>
-              <li><el-button type="info" size="medium" round @click="jump">Repair Remind</el-button></li><br>
-            </ul>
-          </el-col>
+            <el-form-item label="State: ">
+              Rented by you till 12.2.2019
+            </el-form-item>
 
-          <el-col :span="14" offset="2" class="text-center">
-            <el-table
-            :data="tableData"
-            border
-            show-header
-            fit
-            style="width: 100%">
-            <el-table-column
-              prop="attribute"
-              width="100"
-              >
-            </el-table-column>
-            <el-table-column
-              prop="value"      
-              >
-            </el-table-column>
-          </el-table>
-          </el-col>
+
+            <!-- <el-form-item label="Description">
+              <el-input v-model="form.desc" type="textarea"/>
+            </el-form-item> -->
+
+            <!-- <el-form-item label="Photo">
+              <el-upload
+                class="upload-demo"
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :before-remove="beforeRemove"
+                multiple
+                :limit="3"
+                :on-exceed="handleExceed"
+                :file-list="fileList">
+                <el-button size="small" type="primary">Click to upload</el-button>
+                <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
+              </el-upload>
+            </el-form-item> -->
+
+            <el-form-item>
+              <el-button type="primary" @click="onSubmit">Apply</el-button>
+              <el-button @click="onCancel">Cancel</el-button>
+            </el-form-item>
+          </el-form>
         </div>
       </el-card>
     </el-row>
@@ -88,36 +77,60 @@ export default {
   data () {
     return {
       tableData: [{
-        attribute: 'Address',
-        value: '31 Zheda road, Xihu, Hangzhou, Zhejiang',
+        attribute: 'Location',
+        value: '',
       }, {
         attribute: 'Type',
-        value: 'Apartment',
+        value: '',
       }, {
         attribute: 'Area',
-        value: '120m2',
+        value: '',
       }, {
-        attribute: 'Room',
-        value: '3 Bedroom, 1 Kitchen, 2 Bathroom',
+        attribute: 'Bid',
+        value: '',
       }, {
-        attribute: 'Parking',
-        value: '1',
+        attribute: 'Number of Bedrooms',
+        value: '',
+      }, {
+        attribute: 'Parking Space',
+        value: '',
+      }, {
+        attribute: 'Utilities',
+        value: '',
+      }, {
+        attribute: 'Inspection Report',
+        value: '',
       }, {
         attribute: 'Status',
-        value: 'Rented by Tom till 12.2.2019',
-      }]
+        value: 'Rented by Tom',
+      }],
+      form: {
+        name: '31 zheda road Xihu, Hangzhou Zhejiang',
+        contact: '',
+        type: '',
+        address: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: '',
+        fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+
+      }
+
     }
   },
   methods: {
-    jump(){
-    this.$router.push("/dragKanban")
-    //传递的参数用{{ $route.query.goodsId }}获取
-    //this.$router.push({path: '/cart?goodsId=12'})
-    //this.$router.go(-2)
-    //后退两步
+    onSubmit() {
+      this.$message('submit!')
     },
-    handleUpload() {
-      this.$refs['excel-upload-input'].click()
+    onCancel (){
+      this.$message({
+        message: 'cancel!',
+        type: 'warning'
+      })
     }
   }
 }
