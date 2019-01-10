@@ -1,81 +1,110 @@
 <template>
   <div class="components-container">
-    <count-to
-      ref="example"
-      :start-val="_startVal"
-      :end-val="_endVal"
-      :duration="_duration"
-      :decimals="_decimals"
-      :separator="_separator"
-      :prefix="_prefix"
-      :suffix="_suffix"
-      :autoplay="true"
-      class="example"/>
-      <el-table
-       :data="tableData"
-       style="width: 100%">
-       <el-table-column
-         label="Card Number"
-         width="180">
-         <template slot-scope="scope">
-           <!-- <i class="el-icon-time"></i> -->
-           <span style="margin-left: 10px">{{ scope.row.cardNum}}</span>
-         </template>
-       </el-table-column>
-       <el-table-column
-         label="Bank Name"
-         width="180">
-         <template slot-scope="scope">
-           <!-- <i class="el-icon-time"></i> -->
-           <span style="margin-left: 10px">{{ scope.row.bankName}}</span>
-         </template>
-       </el-table-column>
-       <el-table-column
-         label="Operations">
-         <template slot-scope="scope">
-           <el-button
-             size="mini"
-             @click="handleRecharge(scope.$index, scope.row)">recharge</el-button>
-           <el-button
-             size="mini"
-             type="danger"
-             @click="handleWithdraw(scope.$index, scope.row)">withdraw</el-button>
-         </template>
-       </el-table-column>
-     </el-table>
-     <el-button type="primary">Add a new card</el-button>
+    <el-container>
+      <el-col :span="7" offset="2" class="text-center">
+        <el-card class="box-card">
+          <count-to
+            ref="example"
+            :start-val="_startVal"
+            :end-val="_endVal_wallet"
+            :duration="_duration"
+            :decimals="_decimals"
+            :separator="_separator"
+            :prefix="_prefix_wallet"
+            :suffix="_suffix"
+            :autoplay="true"
+            class="example"/>
+            <div style="margin:0 auto;width:100px;">
+              <el-button type="info" round>Recharge</el-button>
+            </div>
+        </el-card>
+      </el-col>
+
+      <el-col :span="7" offset="3" class="text-center">
+        <el-card class="box-card">
+          <count-to
+            ref="example"
+            :start-val="_startVal"
+            :end-val="_endVal_loan"
+            :duration="_duration"
+            :decimals="_decimals"
+            :separator="_separator"
+            :prefix="_prefix_loan"
+            :suffix="_suffix"
+            :autoplay="true"
+            class="example"/>
+            <div style="margin:0 auto;width:100px;">
+              <el-button type="info" round>Recharge</el-button>
+            </div>
+        </el-card>
+      </el-col>
+    </el-container>
+
+    <br>
+
+      <el-col :span="15" offset="3" class="text-center">
+        <el-table
+            :data="tableData"
+            border
+            show-header
+            fit>
+            <el-table-column
+              prop="Date"
+              label="Date"
+              >
+            </el-table-column>
+            <el-table-column
+              prop="Way"
+              label="Way"
+              >
+            </el-table-column>
+            <el-table-column
+              prop="Money"
+              label="Money"
+              >
+            </el-table-column>
+            <el-table-column
+              label="Operation"
+              >
+                <template slot-scope="scope">
+                <el-button type="text" size="small">See More</el-button>
+                </template>
+            </el-table-column>
+          </el-table>
+        </el-col>
   </div>
 </template>
 
 <script>
 import countTo from 'vue-count-to'
 import { getList } from '@/api/table'
+import Table from '@/views/repair/myrepair/table'
 
 export default {
   name: 'CountToDemo',
-  components: { countTo },
+  components: { countTo, Table},
   data() {
     return {
       setStartVal: 0,
-      setEndVal: 2017,
-      setDuration: 4000,
+      setEndVal: 300,
+      setDuration: 2000,
       setDecimals: 0,
       setSeparator: ',',
-      setSuffix: ' ',
-      setPrefix: '$ ',
+      setSuffix: '',
+      setPrefix: '',
       list: null,
       tableData: [{
-        cardNum: 'card01',
-        bankName: 'bank01',
+        Date: '2019/1/20',
+        Way: 'company 1',
+        Money: '310'
       }, {
-        cardNum: 'card01',
-        bankName: 'bank01',
+        Date: '2019/1/1',
+        Way: 'company 2',
+        Money: '100'
       }, {
-        cardNum: 'card01',
-        bankName: 'bank01',
-      }, {
-        cardNum: 'card01',
-        bankName: 'bank01',
+        Date: '2019/1/1',
+        Way: 'company 3',
+        Money: '200'
       }]
     }
   },
@@ -93,12 +122,11 @@ export default {
         return 0
       }
     },
-    _endVal() {
-      if (this.setEndVal) {
-        return this.setEndVal
-      } else {
-        return 0
-      }
+    _endVal_wallet() {
+      return 300;
+    },
+    _endVal_loan() {
+      return 100;
     },
     _duration() {
       if (this.setDuration) {
@@ -122,10 +150,13 @@ export default {
       return this.setSeparator
     },
     _suffix() {
-      return this.setSuffix
+      return this.setSufffix
     },
-    _prefix() {
-      return this.setPrefix
+    _prefix_wallet() {
+      return "Wallet $"
+    },
+    _prefix_loan() {
+      return "Loan $"
     }
   },
   methods: {
