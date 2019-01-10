@@ -4,8 +4,20 @@
       <!-- <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0"> -->
       <el-col :span="24" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
         <el-card :body-style="{ padding: '0px' }">
-          <img src="/static/images/housing.jpg" class="image">
-          <div style="padding: 14px;">
+          <!-- <img src="/static/images/housing.jpg" class="image"> -->
+          <el-carousel :interval="4000" type="card" height="470px">
+            <el-carousel-item :key="item">
+              <img src="/static/images/house1.jpg" class="image">
+            </el-carousel-item>
+            <el-carousel-item :key="item">
+              <img src="/static/images/house2.jpg" class="image">
+            </el-carousel-item>
+            <el-carousel-item :key="item">
+              <img src="/static/images/house3.jpg" class="image">
+            </el-carousel-item>
+          </el-carousel>
+        </el-card>
+          <div style="padding: 14px;float: right;margin-top: 200px  ">
             <!-- <span>Yummy hamburger</span> -->
             <div class="bottom clearfix">
               <!-- <time class="time">{{ currentDate }}</time> -->
@@ -15,7 +27,6 @@
               <el-button type="text" class="button">Related Link</el-button>
             </div>
           </div>
-        </el-card>
       </el-col>
     </el-row>
   </div>
@@ -41,6 +52,21 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+  background-color: #d3dce6;
+}
 .dashboard {
   &-container {
     margin: 30px;
