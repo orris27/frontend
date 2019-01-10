@@ -91,6 +91,12 @@ export const constantRouterMap = [
             name: 'MyRepair',
             component: () => import('@/views/repair/myrepair/index'),
             meta: { title: 'My Repair', icon: 'form' }
+          },
+          {
+            path: 'chart',
+            name: 'chart',
+            component: () => import('@/views/repair/chart/index'),
+            meta: { title: 'Chart', icon: 'chart' }
           }
         ]
       }
@@ -155,6 +161,33 @@ export const constantRouterMap = [
         name: 'Credit',
         component: () => import('@/views/credit/index'),
         meta: { title: 'Credit', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/server',
+    component: Layout,
+    name: 'Server',
+    meta: { title: 'Server', icon: 'guide' },
+    children: [
+      {
+        path: 'info',
+        name: 'Info',
+        component: () => import('@/views/server/info/index'),
+        meta: { title: 'Info', icon: 'guide' }
+      },
+      {
+        path: 'repair',
+        name: 'Repair',
+        component: () => import('@/views/server/repair/index'),
+        meta: { title: 'Repair', icon: 'guide' }
+      },
+      {
+        path: 'service',
+        name: 'Service',
+        component: () => import('@/views/server/service/index'),
+        meta: { title: 'Service', icon: 'guide' }
       }
     ]
   },
@@ -272,6 +305,34 @@ export const constantRouterMap = [
       {
         path: 'apply',
         component: () => import("@/views/repair/apply/handle")
+      },
+      {
+        path: 'map',
+        component: () => import("@/views/server/service/map")
+      }
+    ]
+  },
+
+  {
+    path: 'external-link',
+    component: Layout,
+    meta: { title: 'External Link', icon:'link' },
+    children: [
+      {
+        path: 'https://www.zillow.com/',
+        meta: { title: 'Zillow', icon: 'guide' }
+      },
+      {
+        path: 'https://streeteasy.com/',
+        meta: { title: 'StreetEasy', icon: 'peoples' }
+      },
+      {
+        path: 'https://www.nak  edapartments.com/',
+        meta: { title: 'NakeDapartments', icon: 'peoples' }
+      },
+      {
+        path: 'https://www.trulia.com/',
+        meta: { title: 'Trulia', icon: 'guide 2' }
       }
     ]
   },
