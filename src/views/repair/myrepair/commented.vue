@@ -35,12 +35,12 @@
           <span>{{ scope.row.house }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.address" prop="address" width="150px" align="center">
+      <el-table-column :label="attr.address" prop="address" min-width="150px" align="center">
         <!-- <template slot-scope="scope">
           <span>{{ scope.row.address }}</span>
         </template> -->
       </el-table-column>
-      <el-table-column :label="attr.type" prop="type" min-width="150px">
+      <el-table-column :label="attr.type" prop="type" width="150px">
         <!-- <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
@@ -154,7 +154,7 @@ export default {
       const statusMap = {
         waiting: 'success',
         repairing: 'info',
-        finished: 'danger',
+        finished: 'warning',
         payed: 'danger'
       }
       return statusMap[status]
@@ -176,19 +176,129 @@ export default {
         //
         // ],
       dataList: [
-        {
-          house: 'house 1',
-          address: '31 Zheda Road',
-          type: 'electricity',
-          status: 'waiting'
 
-        },
         {
-          house: 'house 2',
-          address: '32 Zheda Road',
-          type: 'ants',
-          status: 'payed'
-        }
+  house: 'house 1',
+  address: '32 Zheda Road, Xihu District, Hangzhou, Zhejiang',
+  type: 'electricity',
+  status: 'payed'
+},
+{
+  house: 'house 2',
+  address: '63 Fuxing Road, Haidian District, Beijing',
+  type: 'water',
+  status: 'payed'
+},
+{
+  house: 'house 3',
+  address: '53 Kaiping Road, Qingdao, Shandong',
+  type: 'insects',
+  status: 'payed'
+},
+{
+  house: 'house 4',
+  address: '55 Chishan Road, Yuhong District, Shenyang, Liaoning',
+  type: 'structure',
+  status: 'payed'
+},
+{
+  house: 'house 5',
+  address: '34 Lane 125, XiKang Road(South), HongKou District, Shanghai',
+  type: 'furniture',
+  status: 'payed'
+},
+{
+  house: 'house 6',
+  address: '42 Zhongzhou Road, Nanyang, Henan',
+  type: 'others',
+  status: 'payed'
+},
+{
+  house: 'house 7',
+  address: '34 Long Chang Li, Xiamen, Fujian',
+  type: 'roof',
+  status: 'payed'
+},
+{
+  house: 'house 8',
+  address: '198 Qidi Road, Xiaoshan District, Hangzhou, Zhejiang',
+  type: 'floor',
+  status: 'payed'
+},
+{
+  house: 'house 9',
+  address: '78 Lianfa Road, Ningbo, Zhejiang',
+  type: 'doors and windows',
+  status: 'payed'
+},
+{
+  house: 'house 10',
+  address: '148 Donghua Road, Baiyun Street, Yuexiu District, Guangzhou, Guangdong',
+  type: 'wall',
+  status: 'payed'
+},
+{
+  house: 'house 11',
+  address: '219 Nanjing Road(West), Donghu District, Nanchang, Jiangxi',
+  type: 'electricity',
+  status: 'payed'
+},
+{
+  house: 'house 12',
+  address: '108 Yaan Street, Wuchang District, Wuhan, Hubei',
+  type: 'garden cleaning',
+  status: 'payed'
+},
+{
+  house: 'house 13',
+  address: '153 Guanghua Road, Changan District, Shijiazhuang, Hebei',
+  type: 'heating system',
+  status: 'payed'
+},
+{
+  house: 'house 14',
+  address: '90 Tonghui Street, Jinjiang District, Chengdu, Sichuan',
+  type: 'ants',
+  status: 'payed'
+},
+{
+  house: 'house 15',
+  address: '6 Jiefang Road, Yingze District, Taiyuan, Shanxi',
+  type: 'plumbing',
+  status: 'payed'
+},
+{
+  house: 'house 16',
+  address: '119 Zixia Road, Huangpu District, Shanghai',
+  type: 'foundation',
+  status: 'payed'
+},
+{
+  house: 'house 17',
+  address: '836 Guangnan Road, Jindong District, Jinhua, Zhejiang',
+  type: 'furniture',
+  status: 'payed'
+},
+{
+  house: 'house 18',
+  address: '17 Gymnasium Road, Kaifu District, Changsha, Hunan',
+  type: 'ventilation system',
+  status: 'payed'
+},
+{
+  house: 'house 19',
+  address: '137 Dongma Road, Nankai District, Tianjin',
+  type: 'others',
+  status: 'payed'
+},
+{
+  house: 'house 20',
+  address: '72 Wuhu Road, Baohe District, Hefei, Anhui',
+  type: 'structure',
+  status: 'payed'
+},
+
+
 
       ],
       row: {

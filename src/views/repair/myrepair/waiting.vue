@@ -154,7 +154,7 @@ export default {
       const statusMap = {
         waiting: 'success',
         repairing: 'info',
-        finished: 'danger',
+        finished: 'warning',
         payed: 'danger'
       }
       return statusMap[status]
@@ -187,7 +187,7 @@ export default {
           house: 'house 2',
           address: '32 Zheda Road',
           type: 'ants',
-          status: 'payed'
+          status: 'waiting'
         }
 
       ],
