@@ -19,20 +19,16 @@ export default {
         group: 'mission'
       },
       list1: [
-        { name: 'Mission', id: 1 },
-        { name: 'Mission', id: 2 },
-        { name: 'Mission', id: 3 },
-        { name: 'Mission', id: 4 }
+        { name: 'Structure'},
+        { name: 'Ant'},
+        { name: 'Water'}
       ],
       list2: [
-        { name: 'Mission', id: 5 },
-        { name: 'Mission', id: 6 },
-        { name: 'Mission', id: 7 }
+        { name: 'Electricity'},
+        { name: 'Roof'}
       ],
       list3: [
-        { name: 'Mission', id: 8 },
-        { name: 'Mission', id: 9 },
-        { name: 'Mission', id: 10 }
+        { name: 'Floor'}
       ]
     }
   }
@@ -42,6 +38,7 @@ export default {
 .board {
   width: 1000px;
   margin-left: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-around;
   flex-direction: row;

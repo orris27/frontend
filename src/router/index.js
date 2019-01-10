@@ -51,7 +51,7 @@ export const constantRouterMap = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: 'Homepage', icon:'dashboard' }
 
-    },{ path: 'dragKanban', component: () => import('@/views/dragKanban'), hidden: true }]
+    }]//,{ path: 'dragKanban', component: () => import('@/views/dragKanban'), hidden: true }]
   },
   {
     path: '/house',
