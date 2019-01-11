@@ -5,7 +5,7 @@
       <el-col :span="24" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
         <el-card :body-style="{ padding: '0px' }">
           <!-- <img src="/static/images/housing.jpg" class="image"> -->
-          <el-carousel :interval="1500" type="card" height="400px">
+          <el-carousel :interval="2500" type="card" height="400px">
             <el-carousel-item :key="item">
               <img src="/static/images/house1.jpg" class="image">
             </el-carousel-item>
